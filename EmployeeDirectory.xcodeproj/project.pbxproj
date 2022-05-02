@@ -15,7 +15,19 @@
 		FE44B6EE281F313E006B39E5 /* EmployeesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6ED281F313E006B39E5 /* EmployeesListViewController.swift */; };
 		FE44B6F1281F324E006B39E5 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6F0281F324E006B39E5 /* Employee.swift */; };
 		FE44B6F4281F3530006B39E5 /* EmployeeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6F3281F3530006B39E5 /* EmployeeClient.swift */; };
+		FE44B6F6281FCA35006B39E5 /* EmployeeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6F5281FCA35006B39E5 /* EmployeeListViewModel.swift */; };
+		FE44B6FE281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6FD281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FE44B6FF281FCAA3006B39E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FE44B6CD281F30AA006B39E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FE44B6D4281F30AA006B39E5;
+			remoteInfo = EmployeeDirectory;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FE44B6D5281F30AA006B39E5 /* EmployeeDirectory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeeDirectory.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,10 +40,20 @@
 		FE44B6ED281F313E006B39E5 /* EmployeesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListViewController.swift; sourceTree = "<group>"; };
 		FE44B6F0281F324E006B39E5 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		FE44B6F3281F3530006B39E5 /* EmployeeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeClient.swift; sourceTree = "<group>"; };
+		FE44B6F5281FCA35006B39E5 /* EmployeeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewModel.swift; sourceTree = "<group>"; };
+		FE44B6FB281FCAA3006B39E5 /* EmployeeDirectoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmployeeDirectoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE44B6FD281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectoryListAsynchronousTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		FE44B6D2281F30AA006B39E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FE44B6F8281FCAA3006B39E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				FE44B6D7281F30AA006B39E5 /* EmployeeDirectory */,
+				FE44B6FC281FCAA3006B39E5 /* EmployeeDirectoryTests */,
 				FE44B6D6281F30AA006B39E5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				FE44B6D5281F30AA006B39E5 /* EmployeeDirectory.app */,
+				FE44B6FB281FCAA3006B39E5 /* EmployeeDirectoryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -77,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				FE44B6ED281F313E006B39E5 /* EmployeesListViewController.swift */,
+				FE44B6F5281FCA35006B39E5 /* EmployeeListViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -95,6 +120,14 @@
 				FE44B6F3281F3530006B39E5 /* EmployeeClient.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		FE44B6FC281FCAA3006B39E5 /* EmployeeDirectoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				FE44B6FD281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift */,
+			);
+			path = EmployeeDirectoryTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -117,6 +150,24 @@
 			productReference = FE44B6D5281F30AA006B39E5 /* EmployeeDirectory.app */;
 			productType = "com.apple.product-type.application";
 		};
+		FE44B6FA281FCAA3006B39E5 /* EmployeeDirectoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FE44B701281FCAA3006B39E5 /* Build configuration list for PBXNativeTarget "EmployeeDirectoryTests" */;
+			buildPhases = (
+				FE44B6F7281FCAA3006B39E5 /* Sources */,
+				FE44B6F8281FCAA3006B39E5 /* Frameworks */,
+				FE44B6F9281FCAA3006B39E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FE44B700281FCAA3006B39E5 /* PBXTargetDependency */,
+			);
+			name = EmployeeDirectoryTests;
+			productName = EmployeeDirectoryTests;
+			productReference = FE44B6FB281FCAA3006B39E5 /* EmployeeDirectoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -129,6 +180,10 @@
 				TargetAttributes = {
 					FE44B6D4281F30AA006B39E5 = {
 						CreatedOnToolsVersion = 13.3;
+					};
+					FE44B6FA281FCAA3006B39E5 = {
+						CreatedOnToolsVersion = 13.3;
+						TestTargetID = FE44B6D4281F30AA006B39E5;
 					};
 				};
 			};
@@ -146,6 +201,7 @@
 			projectRoot = "";
 			targets = (
 				FE44B6D4281F30AA006B39E5 /* EmployeeDirectory */,
+				FE44B6FA281FCAA3006B39E5 /* EmployeeDirectoryTests */,
 			);
 		};
 /* End PBXProject section */
@@ -161,6 +217,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FE44B6F9281FCAA3006B39E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -172,11 +235,28 @@
 				FE44B6F4281F3530006B39E5 /* EmployeeClient.swift in Sources */,
 				FE44B6F1281F324E006B39E5 /* Employee.swift in Sources */,
 				FE44B6D9281F30AA006B39E5 /* AppDelegate.swift in Sources */,
+				FE44B6F6281FCA35006B39E5 /* EmployeeListViewModel.swift in Sources */,
 				FE44B6DB281F30AA006B39E5 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FE44B6F7281FCAA3006B39E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FE44B6FE281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FE44B700281FCAA3006B39E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FE44B6D4281F30AA006B39E5 /* EmployeeDirectory */;
+			targetProxy = FE44B6FF281FCAA3006B39E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FE44B6DE281F30AA006B39E5 /* Main.storyboard */ = {
@@ -368,6 +448,42 @@
 			};
 			name = Release;
 		};
+		FE44B702281FCAA3006B39E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3KQ63J72GA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thoppan.EmployeeDirectoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmployeeDirectory.app/EmployeeDirectory";
+			};
+			name = Debug;
+		};
+		FE44B703281FCAA3006B39E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3KQ63J72GA;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thoppan.EmployeeDirectoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EmployeeDirectory.app/EmployeeDirectory";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -385,6 +501,15 @@
 			buildConfigurations = (
 				FE44B6EA281F30AB006B39E5 /* Debug */,
 				FE44B6EB281F30AB006B39E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FE44B701281FCAA3006B39E5 /* Build configuration list for PBXNativeTarget "EmployeeDirectoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FE44B702281FCAA3006B39E5 /* Debug */,
+				FE44B703281FCAA3006B39E5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

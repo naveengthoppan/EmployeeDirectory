@@ -10,6 +10,7 @@ import Foundation
 enum EmployeeType: String, Decodable {
     case fullTime = "FULL_TIME"
     case partTime = "PART_TIME"
+    case contractor = "CONTRACTOR"
     case notAvailable = "Not Available"
 }
 

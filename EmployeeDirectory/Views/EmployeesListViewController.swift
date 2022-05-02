@@ -13,7 +13,9 @@ class EmployeesListViewController: UIViewController {
     
     var networkClient: EmployeeClient = EmployeeClient.shared
     var dataTask: URLSessionDataTask?
-    var employees: [Employee]?
+    
+    var viewModel = EmployeeListViewModel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,7 @@ class EmployeesListViewController: UIViewController {
       self.tableView.refreshControl?.beginRefreshing()
       dataTask = networkClient.getEmployees() { employees, error in
         self.dataTask = nil
-          self.employees = employees?.employees
+          self.viewModel.employees = employees?.employees
         self.tableView.refreshControl?.endRefreshing()
         self.tableView.reloadData()
       }
@@ -50,13 +52,13 @@ class EmployeesListViewController: UIViewController {
 
 extension EmployeesListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return employees?.count ?? 0
+        return viewModel.employees?.count ?? 0
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeCell") as? UITableViewCell {
-            if let employee = employees?[indexPath.row] {
+            if let employee = viewModel.employees?[indexPath.row] {
                 cell.textLabel?.text = employee.fullName
                 cell.detailTextLabel?.text = employee.biography
                 return cell
