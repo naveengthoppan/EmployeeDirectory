@@ -20,15 +20,15 @@ struct Employees: Decodable {
 
 struct Employee: Decodable {
     
-    let uuid: UUID
-    let fullName: String
-    let phoneNumber: String?
-    let emailAddress: String
-    let biography: String?
-    let photoUrlSmall: URL?
-    let photoUrlLarge: URL?
-    let team: String
-    let employeeType: EmployeeType
+    var uuid: String
+    var fullName: String
+    var phoneNumber: String?
+    var emailAddress: String
+    var biography: String?
+    var photoUrlSmall: String?
+    var photoUrlLarge: String?
+    var team: String
+    var employeeType: EmployeeType
     
     enum CodingKeys: String, CodingKey {
         case uuid
@@ -40,23 +40,5 @@ struct Employee: Decodable {
         case photoUrlLarge = "photo_url_large"
         case team
         case employeeType = "employee_type"
-    }
-    
-    init(from decoder: Decoder) throws {
-        let values = try decoder.container(keyedBy: CodingKeys.self)
-        let uuidString = try values.decodeIfPresent(String.self, forKey: .uuid)
-        uuid = UUID(uuidString: uuidString!)!
-        fullName = try values.decodeIfPresent(String.self, forKey: .fullName)!
-        phoneNumber = try values.decodeIfPresent(String.self, forKey: .phoneNumber)!
-        emailAddress = try values.decodeIfPresent(String.self, forKey: .emailAddress)!
-        biography = try values.decodeIfPresent(String.self, forKey: .biography)!
-        let photoUrlSmallString = try values.decodeIfPresent(String.self, forKey: .photoUrlSmall)!
-        photoUrlSmall = URL(string: photoUrlSmallString)!
-        let photoUrlLargeString = try values.decodeIfPresent(String.self, forKey: .photoUrlLarge)!
-        photoUrlLarge = URL(string: photoUrlLargeString)!
-        team = try values.decodeIfPresent(String.self, forKey: .team)!
-        let employeeTypeString = try values.decodeIfPresent(String.self, forKey: .employeeType)
-        employeeType = EmployeeType(rawValue: employeeTypeString!) ?? .notAvailable
-        
     }
 }

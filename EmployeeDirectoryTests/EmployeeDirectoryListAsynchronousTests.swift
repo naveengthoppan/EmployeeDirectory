@@ -27,6 +27,23 @@ class EmployeeDirectoryListAsynchronousTests: XCTestCase {
         waitForExpectations(timeout: timeOut)
     }
     
+    func test_403() {
+        URLSession.shared.dataTask(with: URL(string: "https://s3.amazonaws.com/sq-mobile-interview/people.json")!) { data, response, error in
+            
+            defer { self.expectation.fulfill() }
+            
+            XCTAssertNil(error)
+            
+            do {
+                let response = try XCTUnwrap(response as? HTTPURLResponse)
+                XCTAssertEqual(response.statusCode, 403)
+            } catch { }
+            
+        }.resume()
+        
+        waitForExpectations(timeout: timeOut)
+    }
+    
     func test_decodeEmployees() {
         URLSession.shared.dataTask(with: URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees.json")!) { data, response, error in
             defer { self.expectation.fulfill() }
@@ -41,6 +58,29 @@ class EmployeeDirectoryListAsynchronousTests: XCTestCase {
                     try JSONDecoder().decode(Employees.self, from: data)
                 )
             } catch {}
+        }.resume()
+        waitForExpectations(timeout: timeOut)
+    }
+    
+    func test_decodeEmployeesFailure() {
+        URLSession.shared.dataTask(with: URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees_malformed.json")!) { data, response, error in
+            defer { self.expectation.fulfill() }
+            XCTAssertNil(error)
+            
+            do {
+                let response = try XCTUnwrap(response as? HTTPURLResponse)
+                XCTAssertEqual(response.statusCode, 200)
+                
+                let data = try XCTUnwrap(data)
+                    _ = try JSONDecoder().decode(Employees.self, from: data)
+            } catch {
+                switch error {
+                case DecodingError.keyNotFound(let key, _):
+                  XCTAssertEqual(key.stringValue, "team")
+                default:
+                  XCTFail("\(error)")
+                }
+            }
         }.resume()
         waitForExpectations(timeout: timeOut)
     }

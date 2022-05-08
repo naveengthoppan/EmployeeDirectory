@@ -15,8 +15,11 @@
 		FE44B6EE281F313E006B39E5 /* EmployeesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6ED281F313E006B39E5 /* EmployeesListViewController.swift */; };
 		FE44B6F1281F324E006B39E5 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6F0281F324E006B39E5 /* Employee.swift */; };
 		FE44B6F4281F3530006B39E5 /* EmployeeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6F3281F3530006B39E5 /* EmployeeClient.swift */; };
-		FE44B6F6281FCA35006B39E5 /* EmployeeListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6F5281FCA35006B39E5 /* EmployeeListViewModel.swift */; };
 		FE44B6FE281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B6FD281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift */; };
+		FE44B70B28211CEB006B39E5 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B70A28211CEB006B39E5 /* ImageService.swift */; };
+		FE44B70E28211D26006B39E5 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B70D28211D26006B39E5 /* Cancellable.swift */; };
+		FE44B711282120F3006B39E5 /* EmployeeListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE44B710282120F3006B39E5 /* EmployeeListCell.swift */; };
+		FEC343EC2823C41700AE2C14 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC343EB2823C41700AE2C14 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +43,12 @@
 		FE44B6ED281F313E006B39E5 /* EmployeesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesListViewController.swift; sourceTree = "<group>"; };
 		FE44B6F0281F324E006B39E5 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		FE44B6F3281F3530006B39E5 /* EmployeeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeClient.swift; sourceTree = "<group>"; };
-		FE44B6F5281FCA35006B39E5 /* EmployeeListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewModel.swift; sourceTree = "<group>"; };
 		FE44B6FB281FCAA3006B39E5 /* EmployeeDirectoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EmployeeDirectoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE44B6FD281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectoryListAsynchronousTests.swift; sourceTree = "<group>"; };
+		FE44B70A28211CEB006B39E5 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		FE44B70D28211D26006B39E5 /* Cancellable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cancellable.swift; sourceTree = "<group>"; };
+		FE44B710282120F3006B39E5 /* EmployeeListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListCell.swift; sourceTree = "<group>"; };
+		FEC343EB2823C41700AE2C14 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 		FE44B6D7281F30AA006B39E5 /* EmployeeDirectory */ = {
 			isa = PBXGroup;
 			children = (
+				FE44B70C28211D1C006B39E5 /* Protocols */,
 				FE44B6F2281F3519006B39E5 /* Networking */,
 				FE44B6EF281F3237006B39E5 /* Models */,
 				FE44B6EC281F3122006B39E5 /* Views */,
@@ -100,8 +107,9 @@
 		FE44B6EC281F3122006B39E5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FE44B70F28212017006B39E5 /* Cells */,
 				FE44B6ED281F313E006B39E5 /* EmployeesListViewController.swift */,
-				FE44B6F5281FCA35006B39E5 /* EmployeeListViewModel.swift */,
+				FEC343EB2823C41700AE2C14 /* BaseViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -118,6 +126,7 @@
 			isa = PBXGroup;
 			children = (
 				FE44B6F3281F3530006B39E5 /* EmployeeClient.swift */,
+				FE44B70A28211CEB006B39E5 /* ImageService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -128,6 +137,22 @@
 				FE44B6FD281FCAA3006B39E5 /* EmployeeDirectoryListAsynchronousTests.swift */,
 			);
 			path = EmployeeDirectoryTests;
+			sourceTree = "<group>";
+		};
+		FE44B70C28211D1C006B39E5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				FE44B70D28211D26006B39E5 /* Cancellable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		FE44B70F28212017006B39E5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FE44B710282120F3006B39E5 /* EmployeeListCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,10 +258,13 @@
 			files = (
 				FE44B6EE281F313E006B39E5 /* EmployeesListViewController.swift in Sources */,
 				FE44B6F4281F3530006B39E5 /* EmployeeClient.swift in Sources */,
+				FE44B70E28211D26006B39E5 /* Cancellable.swift in Sources */,
 				FE44B6F1281F324E006B39E5 /* Employee.swift in Sources */,
+				FE44B711282120F3006B39E5 /* EmployeeListCell.swift in Sources */,
+				FEC343EC2823C41700AE2C14 /* BaseViewController.swift in Sources */,
 				FE44B6D9281F30AA006B39E5 /* AppDelegate.swift in Sources */,
-				FE44B6F6281FCA35006B39E5 /* EmployeeListViewModel.swift in Sources */,
 				FE44B6DB281F30AA006B39E5 /* SceneDelegate.swift in Sources */,
+				FE44B70B28211CEB006B39E5 /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

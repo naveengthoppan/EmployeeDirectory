@@ -14,6 +14,7 @@ protocol EmployeeService {
 
 class EmployeeClient: EmployeeService {
     
+    
     let baseUrl: URL
     let session: URLSession
     let responseQueue: DispatchQueue?
@@ -51,7 +52,23 @@ class EmployeeClient: EmployeeService {
             do {
                 let employees = try JSONDecoder().decode(Employees.self, from: data)
                 self.dispatchResult(models: employees, error: error, completion: completion)
+            } catch let DecodingError.dataCorrupted(context) {
+                self.dispatchResult(error: DecodingError.dataCorrupted(context), completion: completion)
+                print(context)
+            } catch let DecodingError.keyNotFound(key, context) {
+                print("Key '\(key)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                self.dispatchResult(error: DecodingError.keyNotFound(key, context), completion: completion)
+            } catch let DecodingError.valueNotFound(value, context) {
+                print("Value '\(value)' not found:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                self.dispatchResult(error: DecodingError.valueNotFound(value, context), completion: completion)
+            } catch let DecodingError.typeMismatch(type, context)  {
+                print("Type '\(type)' mismatch:", context.debugDescription)
+                print("codingPath:", context.codingPath)
+                self.dispatchResult(error: DecodingError.typeMismatch(type, context), completion: completion)
             } catch {
+                print("error: ", error)
                 self.dispatchResult(error: error, completion: completion)
             }
         }
