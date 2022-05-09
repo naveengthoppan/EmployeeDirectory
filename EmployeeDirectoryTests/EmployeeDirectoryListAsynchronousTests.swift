@@ -84,5 +84,23 @@ class EmployeeDirectoryListAsynchronousTests: XCTestCase {
         }.resume()
         waitForExpectations(timeout: timeOut)
     }
+    
+    func test_emptyEmployeeResponse() {
+        URLSession.shared.dataTask(with: URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees_empty.json")!) { data, response, error in
+            defer { self.expectation.fulfill() }
+            XCTAssertNil(error)
+            
+            do {
+                let response = try XCTUnwrap(response as? HTTPURLResponse)
+                XCTAssertEqual(response.statusCode, 200)
+                
+                let data = try XCTUnwrap(data)
+                XCTAssertNoThrow(
+                    try JSONDecoder().decode(Employees.self, from: data)
+                )
+            } catch {}
+        }.resume()
+        waitForExpectations(timeout: timeOut)
+    }
 
 }
